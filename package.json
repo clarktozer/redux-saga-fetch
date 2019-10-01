@@ -6,7 +6,7 @@
     "types": "lib/index.d.ts",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "tsc"
+        "build": "tsc -b"
     },
     "repository": {
         "type": "git",
@@ -24,7 +24,10 @@
         "url": "https://github.com/clarktozer/redux-saga-fetch/issues"
     },
     "homepage": "https://github.com/clarktozer/redux-saga-fetch#readme",
-    "peerDependencies": {},
+    "peerDependencies": {
+        "redux-saga": "^1.1.1",
+        "typescript": "^3.6.3"
+    },
     "devDependencies": {
         "redux-saga": "^1.1.1",
         "typescript": "^3.6.3"
