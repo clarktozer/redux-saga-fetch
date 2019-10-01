@@ -1,0 +1,32 @@
+{
+    "name": "redux-saga-fetch",
+    "version": "1.0.0",
+    "description": "Saga for consistent fetch api actions",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/clarktozer/redux-saga-fetch.git"
+    },
+    "keywords": [
+        "react",
+        "redux",
+        "redux-saga",
+        "typescript"
+    ],
+    "author": "Clark Tozer <clarkwtozer@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/clarktozer/redux-saga-fetch/issues"
+    },
+    "homepage": "https://github.com/clarktozer/redux-saga-fetch#readme",
+    "peerDependencies": {},
+    "devDependencies": {
+        "redux-saga": "^1.1.1",
+        "typescript": "^3.6.3"
+    }
+}
