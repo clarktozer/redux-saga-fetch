@@ -15,7 +15,7 @@
     "prettier.singleQuote": false,
     "javascript.validate.enable": true,
     "files.exclude": {
-        // "**/node_modules/": true,
-        // "**/lib/": true
+        "**/node_modules/": true,
+        "**/lib/": true
     }
 }
