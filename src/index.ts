@@ -9,7 +9,7 @@ export interface FetchPayload<T, E> {
 export interface FetchAction<T, M, E = Error> {
     type: string;
     payload: FetchPayload<T, E>;
-    meta: M;
+    meta?: M;
 }
 
 function* fetchWorker<T, M>(
