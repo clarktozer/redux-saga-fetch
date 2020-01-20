@@ -5,7 +5,7 @@
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "build": "tsc -b"
     },
     "repository": {
@@ -28,7 +28,11 @@
         "redux-saga": "^1.1.1"
     },
     "devDependencies": {
+        "@types/jest": "^24.9.0",
+        "jest": "^24.9.0",
         "redux-saga": "^1.1.1",
+        "redux-saga-test-plan": "^4.0.0-rc.3",
+        "ts-jest": "^24.3.0",
         "typescript": "^3.6.3"
     }
 }
