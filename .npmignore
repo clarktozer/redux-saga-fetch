@@ -1,9 +1,14 @@
-npm-debug.log
-src
-test
+# Folders
+.vscode
 node_modules
-yarn.lock
-.babelrc
+src
+.github
+
+# Files
+*.csproj
+.git*
 .editorconfig
-.npmignore
-yarn-error.log
+tsconfig.json
+yarn.lock
+.prettierrc
+*.map

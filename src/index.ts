@@ -12,14 +12,7 @@ export interface FetchAction<T, M, E = Error> {
     meta?: M;
 }
 
-function* fetchWorker<T, M>(
-    actionPrefix: string,
-    {
-        type,
-        payload: { onFailure, onSuccess, request },
-        meta
-    }: FetchAction<T, M>
-) {
+function* fetchWorker<T, M>(actionPrefix: string, { type, payload: { onFailure, onSuccess, request }, meta }: FetchAction<T, M>) {
     const prefix = type.replace(actionPrefix, "");
 
     try {
@@ -54,8 +47,7 @@ function* fetchWorker<T, M>(
 
 export function* fetchSaga<T, M>(actionPrefix = "FETCH_") {
     yield takeEvery(
-        ({ payload, type }: FetchAction<T, M>) =>
-            type && type.startsWith(actionPrefix) && payload.request != null,
+        ({ payload, type }: FetchAction<T, M>) => type && type.startsWith(actionPrefix) && payload.request != null,
         function*(action: FetchAction<T, M>) {
             yield call(fetchWorker, actionPrefix, action);
         }
