@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
 export interface FetchPayload<T, E> {
-    request: Promise<T>;
+    request: () => Promise<T>;
     onSuccess?: (response: T) => IterableIterator<any>;
     onFailure?: (error: E) => IterableIterator<any>;
 }
@@ -21,16 +21,20 @@ function* fetchWorker<T, M>(
     }: FetchAction<T, M>
 ) {
     const prefix = type.replace(actionPrefix, "");
+
     try {
         yield put({
             type: `${prefix}_REQUEST`
         });
-        const response = yield call(() => request);
+
+        const response = yield call(request);
+
         yield put({
             type: `${prefix}_SUCCESS`,
             payload: response,
-            meta
+            meta: meta || request
         });
+
         if (onSuccess) {
             yield call(onSuccess, response);
         }
@@ -38,9 +42,10 @@ function* fetchWorker<T, M>(
         yield put({
             type: `${prefix}_FAILED`,
             payload: error,
-            meta,
+            meta: meta || request,
             error: true
         });
+
         if (onFailure) {
             yield call(onFailure, error);
         }
