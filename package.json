@@ -1,6 +1,6 @@
 {
     "name": "redux-saga-fetch",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "description": "Saga for consistent fetch api actions",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
