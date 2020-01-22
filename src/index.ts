@@ -2,8 +2,8 @@ import { call, put, takeEvery } from "redux-saga/effects";
 
 export interface FetchPayload<T, E> {
     request: () => Promise<T>;
-    onSuccess?: (response: T) => IterableIterator<any>;
-    onFailure?: (error: E) => IterableIterator<any>;
+    onSuccess?: (response: T) => void;
+    onFailure?: (error: E) => void;
 }
 
 export interface FetchAction<T, M, E = Error> {
