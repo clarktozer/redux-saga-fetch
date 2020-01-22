@@ -7,8 +7,21 @@ Saga for consistent fetch api actions.
 
 ## Installation
 
-```bash
+```
 npm install redux-saga-fetch-actions
+```
+
+```javascript
+import createSagaMiddleware from "@redux-saga/core";
+import { fetchSaga } from "redux-saga-fetch-actions";
+import { applyMiddleware, createStore } from "redux";
+import { rootReducer } from "../reducers";
+
+const sagaMiddleware = createSagaMiddleware();
+
+export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(fetchSaga);
 ```
 
 ## Props
