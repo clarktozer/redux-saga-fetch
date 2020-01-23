@@ -49,6 +49,7 @@ npm install redux-saga-fetch-actions
 ```
 
 ```javascript
+import { all } from "redux-saga/effects";
 import createSagaMiddleware from "@redux-saga/core";
 import { fetchSaga } from "redux-saga-fetch-actions";
 import { applyMiddleware, createStore } from "redux";
