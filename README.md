@@ -58,7 +58,11 @@ const sagaMiddleware = createSagaMiddleware();
 
 export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
-sagaMiddleware.run(fetchSaga);
+export function* rootSaga() {
+    yield all([fetchSaga("FETCH_")]);
+}
+
+sagaMiddleware.run(rootSaga);
 ```
 
 ## Saga Props
