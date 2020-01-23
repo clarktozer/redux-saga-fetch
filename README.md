@@ -23,7 +23,7 @@ dispatch({
 })
 ```
 
-The saga will then dispatch a request action, and either a success or failure action, both in FSA format. The meta property will be passed through to both.
+The saga will then dispatch a request action, and either a success or failure action, both in FSA format. The meta property will be passed through to both. If no meta is provided, it will be set to be the request function.
 
 ```
 {
