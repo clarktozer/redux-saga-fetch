@@ -1,18 +1,18 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
-export interface FetchPayload<T, E> {
+export interface IFetchPayload<T, E> {
     request: () => Promise<T>;
     onSuccess?: (response: T) => void;
     onFailure?: (error: E) => void;
 }
 
-export interface FetchAction<T, M, E = Error> {
+export interface IFetchAction<T, M, E = Error> {
     type: string;
-    payload: FetchPayload<T, E>;
+    payload: IFetchPayload<T, E>;
     meta?: M;
 }
 
-function* fetchWorker<T, M>(actionPrefix: string, { type, payload: { onFailure, onSuccess, request }, meta }: FetchAction<T, M>) {
+function* fetchWorker<T, M>(actionPrefix: string, { type, payload: { onFailure, onSuccess, request }, meta }: IFetchAction<T, M>) {
     const prefix = type.replace(actionPrefix, "");
 
     try {
@@ -47,8 +47,8 @@ function* fetchWorker<T, M>(actionPrefix: string, { type, payload: { onFailure, 
 
 export function* fetchSaga<T, M>(actionPrefix = "FETCH_") {
     yield takeEvery(
-        ({ payload, type }: FetchAction<T, M>) => type && type.startsWith(actionPrefix) && payload.request != null,
-        function*(action: FetchAction<T, M>) {
+        ({ payload, type }: IFetchAction<T, M>) => type && type.startsWith(actionPrefix) && payload.request != null,
+        function*(action: IFetchAction<T, M>) {
             yield call(fetchWorker, actionPrefix, action);
         }
     );
